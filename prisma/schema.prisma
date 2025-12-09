@@ -10,5 +10,31 @@ generator client {
 }
 
 datasource db {
-  provider = "postgresql"
+  provider = "sqlite3"
 }
+
+model genres {
+  id        Int      @id @default(autoincrement())
+  titreGenre     String 
+  jeux jeux[]
+}
+
+model jeux{
+
+  id        Int      @id @default(autoincrement())
+  titre     String 
+  description     String
+  createdAt DateTime @default(now()) 
+  editeur editeur? @relation(fields: [editeurId], references: [id])
+  editeurId Int?
+  genre genres? @relation(fields: [genreId], references: [id])
+  genreId Int?
+}
+
+model editeur{
+  id        Int      @id @default(autoincrement())
+  nom String 
+  jeux jeux @relation(fields: [jeuxId], references: [id])
+  jeuxId Int
+}
+
