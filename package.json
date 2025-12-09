@@ -18,7 +18,8 @@
   "homepage": "https://github.com/MorpheeSp/Vapeur#readme",
   "dependencies": {
     "handlebars": "^4.7.8",
-    "prisma": "^7.1.0",
-    "sqlite": "^5.1.1"
+    "prisma": "6.19.0",
+    "sqlite": "^5.1.1",
+    "sqlite3": "^5.1.7"
   }
 }
