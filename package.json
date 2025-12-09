@@ -1,0 +1,24 @@
+{
+  "name": "clear",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MorpheeSp/Vapeur.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MorpheeSp/Vapeur/issues"
+  },
+  "homepage": "https://github.com/MorpheeSp/Vapeur#readme",
+  "dependencies": {
+    "handlebars": "^4.7.8",
+    "prisma": "^7.1.0",
+    "sqlite": "^5.1.1"
+  }
+}
