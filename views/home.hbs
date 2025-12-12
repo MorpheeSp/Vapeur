@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Vapeur - Accueil</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        .game {
+            background: #f0f0f0;
+            padding: 15px;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Jeux</h1>
+    
+    {{#if games}}
+        {{#each games}}
+        <div class="game">
+            <strong>{{titre}}</strong>
+            <p>{{description}}</p>
+            {{#if genre}}
+                <p>Genre: {{genre.titreGenre}}</p>
+            {{/if}}
+            {{#if editeur}}
+                <p>Éditeur: {{editeur.nom}}</p>
+            {{/if}}
+        </div>
+        {{/each}}
+    {{else}}
+        <p>Aucun jeu disponible.</p>
+    {{/if}}
+</body>
+</html>
