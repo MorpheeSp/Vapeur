@@ -18,6 +18,8 @@
 <body>
     <h1>Jeux</h1>
     
+    <p><a href="/games/new">Ajouter un jeu</a></p>
+    
     {{#if games}}
         {{#each games}}
         <div class="game">
@@ -29,6 +31,10 @@
             {{#if editeur}}
                 <p>Éditeur: {{editeur.nom}}</p>
             {{/if}}
+            <a href="/games/{{id}}/edit">Modifier</a>
+            <form action="/games/{{id}}/delete" method="POST" style="display: inline;">
+                <button type="submit">Supprimer</button>
+            </form>
         </div>
         {{/each}}
     {{else}}
