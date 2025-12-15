@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Vapeur - Modifier un jeu</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        form {
+            background: #f0f0f0;
+            padding: 15px;
+            max-width: 500px;
+        }
+        input, textarea, select {
+            width: 100%;
+            padding: 8px;
+            margin: 5px 0;
+        }
+        button {
+            padding: 10px 20px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Modifier un jeu</h1>
+    
+    <form action="/games/{{game.id}}/update" method="POST">
+        <p>
+            <label>Titre:</label><br>
+            <input type="text" name="titre" value="{{game.titre}}" required>
+        </p>
+        <p>
+            <label>Description:</label><br>
+            <textarea name="description" rows="4" required>{{game.description}}</textarea>
+        </p>
+        <p>
+            <label>Genre (optionnel):</label><br>
+            <select name="genreId">
+                <option value="">-- Aucun --</option>
+                {{#each genres}}
+                <option value="{{id}}" {{#if selected}}selected{{/if}}>{{titreGenre}}</option>
+                {{/each}}
+            </select>
+        </p>
+        <p>
+            <label>Éditeur (optionnel):</label><br>
+            <select name="editorId">
+                <option value="">-- Aucun --</option>
+                {{#each editeurs}}
+                <option value="{{id}}" {{#if selected}}selected{{/if}}>{{nom}}</option>
+                {{/each}}
+            </select>
+        </p>
+        <button type="submit">Enregistrer</button>
+    </form>
+    
+    <p><a href="/">Retour</a></p>
+</body>
+</html>
+
