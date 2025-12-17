@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Vapeur - Éditeur</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        nav a { margin-right: 10px; }
+        .game { background: #f0f0f0; padding: 12px; margin: 8px 0; }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="/">Accueil</a>
+        <a href="/games">Jeux</a>
+        <a href="/genres">Genres</a>
+        <a href="/editeurs">Éditeurs</a>
+    </nav>
+
+    {{#if editeur}}
+        <h1>{{editeur.nom}}</h1>
+        <p>
+            <a href="/editeurs/{{editeur.id}}/edit">modifier</a>
+            <form action="/editeurs/{{editeur.id}}/delete" method="POST" style="display: inline;">
+                <button type="submit">supprimer</button>
+            </form>
+        </p>
+
+        <h2>Jeux de cet éditeur</h2>
+        {{#if games}}
+            {{#each games}}
+            <div class="game">
+                <a href="/games/{{id}}"><strong>{{titre}}</strong></a>
+                {{#if releaseDateText}}<p>sortie : {{releaseDateText}}</p>{{/if}}
+                {{#if genre}}
+                    <p>genre : <a href="/genres/{{genre.id}}">{{genre.titreGenre}}</a></p>
+                {{/if}}
+            </div>
+            {{/each}}
+        {{else}}
+            <p>Aucun jeu pour cet éditeur.</p>
+        {{/if}}
+    {{else}}
+        <p>Éditeur introuvable.</p>
+    {{/if}}
+
+    <p><a href="/editeurs">Retour aux éditeurs</a></p>
+</body>
+</html>
+
