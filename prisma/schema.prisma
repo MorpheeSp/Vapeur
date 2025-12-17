@@ -14,26 +14,29 @@ datasource db {
 }
 
 model genres {
-  id        Int      @id @default(autoincrement())
-  titreGenre     String 
+  id         Int    @id @default(autoincrement())
+  titreGenre String
+  jeux       jeux[]
+}
+
+model editeur {
+  id   Int    @id @default(autoincrement())
+  nom  String
   jeux jeux[]
 }
 
-model editeur{
-  id        Int      @id @default(autoincrement())
-  nom String 
-  jeux jeux[]
-}
-model jeux{
+model jeux {
+  id          Int       @id @default(autoincrement())
+  titre       String
+  description String
+  releaseDate DateTime?
+  isFeatured  Boolean   @default(false)
+  createdAt   DateTime  @default(now())
 
-  id        Int      @id @default(autoincrement())
-  titre     String 
-  description     String
-  createdAt DateTime @default(now()) 
-  editeur editeur? @relation(fields: [editeurId], references: [id])
+  editeur   editeur? @relation(fields: [editeurId], references: [id])
   editeurId Int?
-  genre genres? @relation(fields: [genreId], references: [id])
-  genreId Int?
+  genre     genres?  @relation(fields: [genreId], references: [id])
+  genreId   Int?
 }
 
 
