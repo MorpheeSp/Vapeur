@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Vapeur - Fiche jeu</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        nav a { margin-right: 10px; }
+        .box { background: #f0f0f0; padding: 15px; }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="/">Accueil</a>
+        <a href="/games">Jeux</a>
+        <a href="/genres">Genres</a>
+        <a href="/editeurs">Éditeurs</a>
+    </nav>
+
+    {{#if game}}
+        <h1>{{game.titre}}</h1>
+        <div class="box">
+            {{#if game.releaseDateText}}<p>sortie : {{game.releaseDateText}}</p>{{/if}}
+            <p>{{game.description}}</p>
+            {{#if game.genre}}
+                <p>genre : <a href="/genres/{{game.genre.id}}">{{game.genre.titreGenre}}</a></p>
+            {{/if}}
+            {{#if game.editeur}}
+                <p>éditeur : <a href="/editeurs/{{game.editeur.id}}">{{game.editeur.nom}}</a></p>
+            {{/if}}
+            {{#if game.isFeatured}}<p>visible sur l'accueil</p>{{/if}}
+        </div>
+        <p>
+            <a href="/games/{{game.id}}/edit">modifier</a>
+            <form action="/games/{{game.id}}/delete" method="POST" style="display: inline;">
+                <button type="submit">Supprimer</button>
+            </form>
+        </p>
+    {{else}}
+        <p>Jeu introuvable.</p>
+    {{/if}}
+
+    <p><a href="/games">Retour à la liste</a></p>
+</body>
+</html>
+

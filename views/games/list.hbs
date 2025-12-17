@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Vapeur - Accueil</title>
+    <title>Vapeur - Jeux</title>
     <style>
         body { font-family: Arial, sans-serif; padding: 20px; }
         nav a { margin-right: 10px; }
@@ -19,7 +19,7 @@
         <a href="/editeurs/new">Ajouter un éditeur</a>
     </nav>
 
-    <h1>Jeux mis en avant</h1>
+    <h1>Tous les jeux</h1>
 
     {{#if games}}
         {{#each games}}
@@ -33,6 +33,7 @@
             {{#if editeur}}
                 <p>Éditeur : <a href="/editeurs/{{editeur.id}}">{{editeur.nom}}</a></p>
             {{/if}}
+            {{#if isFeatured}}<p>Sur la page d'accueil</p>{{/if}}
             <a href="/games/{{id}}/edit">Modifier</a>
             <form action="/games/{{id}}/delete" method="POST" style="display: inline;">
                 <button type="submit">Supprimer</button>
@@ -40,7 +41,8 @@
         </div>
         {{/each}}
     {{else}}
-        <p>Aucun jeu mis en avant pour l'instant.</p>
+        <p>Aucun jeu enregistré.</p>
     {{/if}}
 </body>
 </html>
+

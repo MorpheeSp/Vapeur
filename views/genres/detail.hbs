@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Vapeur - Jeux par genre</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        nav a { margin-right: 10px; }
+        .game { background: #f0f0f0; padding: 12px; margin: 8px 0; }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="/">Accueil</a>
+        <a href="/games">Jeux</a>
+        <a href="/genres">Genres</a>
+        <a href="/editeurs">Éditeurs</a>
+    </nav>
+
+    {{#if genre}}
+        <h1>{{genre.titreGenre}}</h1>
+        {{#if games}}
+            {{#each games}}
+            <div class="game">
+                <a href="/games/{{id}}"><strong>{{titre}}</strong></a>
+                {{#if releaseDateText}}<p>Sortie : {{releaseDateText}}</p>{{/if}}
+                {{#if editeur}}
+                    <p>Éditeur : <a href="/editeurs/{{editeur.id}}">{{editeur.nom}}</a></p>
+                {{/if}}
+            </div>
+            {{/each}}
+        {{else}}
+            <p>Aucun jeu pour ce genre.</p>
+        {{/if}}
+    {{else}}
+        <p>Genre introuvable.</p>
+    {{/if}}
+
+    <p><a href="/genres">Retour aux genres</a></p>
+</body>
+</html>
+

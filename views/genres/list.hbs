@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Vapeur - Genres</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        nav a { margin-right: 10px; }
+        .item { background: #f0f0f0; padding: 12px; margin: 8px 0; }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="/">Accueil</a>
+        <a href="/games">Jeux</a>
+        <a href="/genres">Genres</a>
+        <a href="/editeurs">Éditeurs</a>
+    </nav>
+
+    <h1>Genres</h1>
+
+    {{#if genres}}
+        {{#each genres}}
+        <div class="item">
+            <a href="/genres/{{id}}">{{titreGenre}}</a>
+        </div>
+        {{/each}}
+    {{else}}
+        <p>Aucun genre.</p>
+    {{/if}}
+</body>
+</html>
+

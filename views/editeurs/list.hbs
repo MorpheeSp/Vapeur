@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Vapeur - Éditeurs</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        nav a { margin-right: 10px; }
+        .item { background: #f0f0f0; padding: 12px; margin: 8px 0; }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="/">Accueil</a>
+        <a href="/games">Jeux</a>
+        <a href="/genres">Genres</a>
+        <a href="/editeurs">Éditeurs</a>
+        <a href="/editeurs/new">Ajouter un éditeur</a>
+    </nav>
+
+    <h1>Éditeurs</h1>
+
+    {{#if editeurs}}
+        {{#each editeurs}}
+        <div class="item">
+            <a href="/editeurs/{{id}}">{{nom}}</a>
+        </div>
+        {{/each}}
+    {{else}}
+        <p>Aucun éditeur.</p>
+    {{/if}}
+</body>
+</html>
+

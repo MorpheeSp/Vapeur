@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Vapeur - Ajouter un éditeur</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        nav a { margin-right: 10px; }
+        form { background: #f0f0f0; padding: 15px; max-width: 400px; }
+        input { width: 100%; padding: 8px; margin: 5px 0; }
+        button { padding: 10px 20px; margin-top: 10px; }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="/">Accueil</a>
+        <a href="/games">Jeux</a>
+        <a href="/genres">Genres</a>
+        <a href="/editeurs">Éditeurs</a>
+    </nav>
+
+    <h1>Ajouter un éditeur</h1>
+
+    <form action="/editeurs/create" method="POST">
+        <p>
+            <label>Nom</label><br>
+            <input type="text" name="nom" required>
+        </p>
+        <button type="submit">Créer</button>
+    </form>
+
+    <p><a href="/editeurs">Retour</a></p>
+</body>
+</html>
+
